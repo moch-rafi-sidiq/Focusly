@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Focusly — timer fokus, target harian, dan riwayat sesi." />
+  <title>Focusly — Fokus</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="app-shell">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" aria-label="Navigasi aplikasi">
+    <a href="index.html" class="logo" aria-label="Kembali ke website Focusly">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="6.2" stroke="#fff" stroke-width="1.8"/>
+          <circle cx="8" cy="8" r="2.2" fill="#fff"/>
+        </svg>
+      </span>
+      Focusly
+    </a>
+    <nav>
+      <a href="#fokus" class="side-link active" data-nav="fokus">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Fokus
+      </a>
+      <a href="#statistik" class="side-link" data-nav="statistik">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 19v-6M10 19V9M15 19v-9M20 19V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        Statistik
+      </a>
+      <a href="#riwayat" class="side-link" data-nav="riwayat">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        Riwayat
+      </a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="index.html" class="side-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Kembali ke Website
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <nav class="mobile-appnav" aria-label="Navigasi mobile">
+      <a href="#fokus" class="active" data-nav="fokus">Fokus</a>
+      <a href="#statistik" data-nav="statistik">Statistik</a>
+      <a href="#riwayat" data-nav="riwayat">Riwayat</a>
+    </nav>
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <h1>Fokus</h1>
+      <p>Selesaikan satu hal pada satu waktu.</p>
+    </div>
+
+    <!-- FOCUS -->
+    <section id="fokus" aria-label="Timer fokus">
+      <div class="grid-2">
+        <div class="card">
+          <div style="text-align:center">
+            <div class="mode-tabs" role="tablist" aria-label="Mode timer">
+              <button type="button" id="modeFocusBtn" class="active" role="tab" aria-selected="true">Fokus</button>
+              <button type="button" id="modeBreakBtn" role="tab" aria-selected="false">Istirahat</button>
+            </div>
+          </div>
+          <div class="timer-display" id="timerDisplay" role="timer" aria-live="off" aria-label="Sisa waktu">25:00</div>
+          <div class="timer-status" id="timerStatus">Siap untuk fokus</div>
+          <div class="timer-actions">
+            <button type="button" class="btn btn-primary" id="startPauseBtn">Mulai</button>
+            <button type="button" class="btn btn-secondary" id="resetBtn">Reset</button>
+          </div>
+
+          <div class="duration-row" role="group" aria-label="Pilih durasi fokus">
+            <button type="button" class="duration-btn" data-minutes="15">15 mnt</button>
+            <button type="button" class="duration-btn active" data-minutes="25">25 mnt</button>
+            <button type="button" class="duration-btn" data-minutes="45">45 mnt</button>
+            <button type="button" class="duration-btn" data-minutes="60">60 mnt</button>
+          </div>
+          <div class="custom-row">
+            <label for="customMinutes" style="font-size:14px;color:var(--muted);font-weight:600">Custom:</label>
+            <input type="number" id="customMinutes" min="1" max="180" placeholder="mnt (1–180)" aria-label="Durasi custom dalam menit" />
+            <button type="button" class="btn btn-secondary btn-small" id="customSetBtn">Atur</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <h2>Target Hari Ini</h2>
+            <p class="desc">Sesi fokus yang diselesaikan hari ini.</p>
+            <div class="target-big"><span id="todayCount">0</span> <small>/ <span id="targetCount">5</span> sesi</small></div>
+            <div class="progress" style="margin-top:12px" role="progressbar" aria-label="Progress target harian" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="targetProgressBar">
+              <div class="progress-fill" id="targetProgressFill" style="width:0%"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+              <span style="font-size:14px;color:var(--muted);font-weight:600" id="targetPercent">0%</span>
+              <span class="target-status" id="targetStatus">Belum tercapai</span>
+            </div>
+            <div style="margin-top:16px">
+              <button type="button" class="btn btn-secondary btn-small btn-block" id="editTargetBtn">Ubah Target</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Ringkasan Hari Ini</h2>
+            <p class="desc">Dihitung otomatis dari sesi hari ini.</p>
+            <div class="grid-3" style="grid-template-columns:1fr 1fr 1fr">
+              <div class="stat-box">
+                <div class="k">Sesi Hari Ini</div>
+                <div class="v" id="summarySessions">0</div>
+              </div>
+              <div class="stat-box">
+                <div class="k">Waktu Fokus</div>
+                <div class="v"><span id="summaryMinutes">0</span> <span>mnt</span></div>
+              </div>
+              <div class="stat-box">
+                <div class="k">Target</div>
+                <div class="v" style="font-size:20px;padding-top:4px"><span id="summaryTarget">0 / 5</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATISTIK -->
+    <section id="statistik" aria-label="Statistik" style="margin-top:20px">
+      <div class="card">
+        <h2>Statistik</h2>
+        <p class="desc">Gambaran sederhana dari kebiasaan fokusmu.</p>
+        <div class="grid-3">
+          <div class="stat-box">
+            <div class="k">Total Sesi</div>
+            <div class="v" id="statTotalSessions">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="k">Total Waktu Fokus</div>
+            <div class="v"><span id="statTotalMinutes">0</span> <span>mnt</span></div>
+          </div>
+          <div class="stat-box">
+            <div class="k">Hari Aktif</div>
+            <div class="v" id="statActiveDays">0</div>
+          </div>
+        </div>
+        <div style="margin-top:18px">
+          <div style="display:flex;justify-content:space-between;font-size:14px;color:var(--muted);font-weight:600;margin-bottom:6px">
+            <span>Progress target hari ini</span><span id="statProgressLabel">0%</span>
+          </div>
+          <div class="progress"><div class="progress-fill" id="statProgressFill" style="width:0%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIWAYAT -->
+    <section id="riwayat" aria-label="Riwayat fokus" style="margin-top:20px">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+          <div>
+            <h2>Riwayat Fokus</h2>
+            <p class="desc" style="margin-bottom:0">Daftar sesi yang sudah kamu selesaikan.</p>
+          </div>
+          <button type="button" class="btn btn-ghost btn-small" id="clearHistoryBtn" style="color:var(--danger)">Hapus riwayat</button>
+        </div>
+        <div id="historyList"></div>
+        <div class="empty" id="historyEmpty" hidden>
+          <h3>Belum ada sesi fokus.</h3>
+          <p>Mulai sesi pertamamu dan bangun kebiasaan fokus.</p>
+          <a href="#fokus" class="btn btn-primary btn-small">Mulai Fokus</a>
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:13px;color:var(--muted)">
+        <a href="index.html" style="color:var(--accent);font-weight:600;text-decoration:none">← Kembali ke Website</a>
+        &nbsp;•&nbsp; Data tersimpan lokal di browser (localStorage).
+      </p>
+    </section>
+  </main>
+</div>
+
+<!-- MODAL SESI SELESAI -->
+<div class="modal-overlay" id="sessionModal" role="dialog" aria-modal="true" aria-labelledby="sessionModalTitle" hidden>
+  <div class="modal">
+    <button class="modal-close" type="button" data-close-modal aria-label="Tutup dialog">✕</button>
+    <h3 id="sessionModalTitle">Fokus selesai.</h3>
+    <p id="sessionModalDesc">Bagus! Kamu baru saja menyelesaikan satu sesi fokus.</p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-secondary" id="modalBreakBtn">Mulai Istirahat</button>
+      <button type="button" class="btn btn-primary" id="modalAgainBtn">Mulai Lagi</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL TARGET -->
+<div class="modal-overlay" id="targetModal" role="dialog" aria-modal="true" aria-labelledby="targetModalTitle" hidden>
+  <div class="modal">
+    <button class="modal-close" type="button" data-close-modal aria-label="Tutup dialog">✕</button>
+    <h3 id="targetModalTitle">Atur target harian</h3>
+    <p>Pilih berapa sesi fokus yang ingin kamu selesaikan hari ini.</p>
+    <div class="target-options" id="targetOptions" role="group" aria-label="Pilihan target harian">
+      <button type="button" data-target="2">2 sesi</button>
+      <button type="button" data-target="3">3 sesi</button>
+      <button type="button" data-target="4">4 sesi</button>
+      <button type="button" data-target="5">5 sesi</button>
+      <button type="button" data-target="6">6 sesi</button>
+      <button type="button" data-target="8">8 sesi</button>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-secondary" data-close-modal>Batal</button>
+      <button type="button" class="btn btn-primary" id="saveTargetBtn">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL KONFIRMASI -->
+<div class="modal-overlay" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle" hidden>
+  <div class="modal">
+    <button class="modal-close" type="button" data-close-modal aria-label="Tutup dialog">✕</button>
+    <h3 id="confirmModalTitle">Hapus riwayat?</h3>
+    <p>Semua sesi yang tersimpan akan dihapus dan tidak bisa dikembalikan.</p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-secondary" data-close-modal>Batal</button>
+      <button type="button" class="btn btn-primary" id="confirmClearBtn" style="background:var(--danger)">Ya, hapus</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

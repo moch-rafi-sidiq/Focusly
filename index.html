@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Focusly membantu kamu mengatur waktu fokus, menyelesaikan tugas, dan membangun kebiasaan produktif." />
+  <title>Focusly — Fokus pada satu hal. Selesaikan lebih banyak.</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo" aria-label="Focusly beranda">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6.2" stroke="#fff" stroke-width="1.8"/>
+            <circle cx="8" cy="8" r="2.2" fill="#fff"/>
+          </svg>
+        </span>
+        Focusly
+      </a>
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="#fitur">Fitur</a>
+        <a href="#cara-kerja">Cara Kerja</a>
+        <a href="#tentang">Tentang</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="app.html" class="btn btn-primary btn-small">Buka Focusly</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M3 5h14M3 10h14M3 15h14" stroke="#111111" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#fitur">Fitur</a>
+      <a href="#cara-kerja">Cara Kerja</a>
+      <a href="#tentang">Tentang</a>
+      <a href="app.html" class="btn btn-primary">Buka Focusly</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="hero-badge"><span class="dot"></span> Timer fokus sederhana</span>
+          <h1>Fokus pada satu hal. Selesaikan lebih banyak.</h1>
+          <p class="lead">Focusly membantu kamu mengatur waktu fokus, menyelesaikan tugas, dan membangun kebiasaan produktif.</p>
+          <div class="hero-actions">
+            <a href="app.html" class="btn btn-primary">Mulai Fokus</a>
+            <a href="#cara-kerja" class="btn btn-secondary">Lihat Cara Kerja</a>
+          </div>
+          <div class="hero-meta">
+            <div><strong>25 mnt</strong>Sesi fokus default</div>
+            <div><strong>100%</strong>Gratis &amp; offline</div>
+            <div><strong>0</strong>Akun dibutuhkan</div>
+          </div>
+        </div>
+
+        <!-- Mockup aplikasi (HTML/CSS murni) -->
+        <div class="mockup" aria-label="Pratinjau aplikasi Focusly">
+          <div class="mockup-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="mockup-body">
+            <div class="mockup-label">Focusly</div>
+            <div class="mockup-title">Fokus Hari Ini</div>
+            <div class="mockup-timer">25:00</div>
+            <div class="mockup-mode">FOKUS</div>
+            <div class="mockup-row"><span>Target Hari Ini</span><strong>4 / 5 sesi</strong></div>
+            <div class="progress" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Progress target harian 80 persen">
+              <div class="progress-fill" style="width:80%"></div>
+            </div>
+            <div class="mockup-btn">Mulai Fokus</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="fitur">
+      <div class="container">
+        <h2 class="section-title reveal">Semua yang kamu butuhkan untuk tetap fokus.</h2>
+        <p class="section-sub reveal">Tiga hal sederhana. Tanpa distraksi. Tanpa pengaturan rumit.</p>
+        <div class="features-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Timer Fokus</h3>
+            <p>Gunakan sesi fokus terstruktur untuk mengerjakan tugas tanpa terdistraksi.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="4.8" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="1.4" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Target Harian</h3>
+            <p>Tentukan target sesi fokus dan lihat perkembanganmu setiap hari.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Riwayat Fokus</h3>
+            <p>Lihat kembali sesi fokus yang sudah kamu selesaikan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="cara-kerja" class="steps">
+      <div class="container">
+        <h2 class="section-title reveal">Mulai fokus dalam tiga langkah.</h2>
+        <p class="section-sub reveal">Tidak perlu daftar. Buka aplikasinya dan langsung mulai.</p>
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-num">STEP 01</div>
+            <h3>Pilih Durasi</h3>
+            <p>Tentukan berapa lama kamu ingin fokus.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-num">STEP 02</div>
+            <h3>Mulai Sesi</h3>
+            <p>Kerjakan satu hal tanpa gangguan.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-num">STEP 03</div>
+            <h3>Selesaikan</h3>
+            <p>Selesaikan sesi dan pantau progresmu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP PREVIEW -->
+    <section id="tentang">
+      <div class="container">
+        <h2 class="section-title reveal">Produktivitasmu, dalam satu tampilan.</h2>
+        <p class="section-sub reveal">Timer, target harian, progress, dan riwayat sesi dalam satu dashboard yang rapi.</p>
+        <div class="preview-wrap reveal">
+          <div class="preview-timer">
+            <div class="mockup-label">Focusly — Fokus</div>
+            <div class="big">25:00</div>
+            <div class="mockup-mode">FOKUS • 25 MENIT</div>
+            <div class="mockup-row"><span>Target Hari Ini</span><strong>4 / 5 sesi</strong></div>
+            <div class="progress"><div class="progress-fill" style="width:80%"></div></div>
+          </div>
+          <div class="preview-side">
+            <h4>Ringkasan Hari Ini</h4>
+            <p class="muted">Sesi 4 • Waktu fokus 100 menit • Target 4 / 5</p>
+            <h4>Riwayat Fokus</h4>
+            <p class="muted">Tersimpan otomatis di browser kamu.</p>
+            <ul class="mini-list">
+              <li><span>10:30 — Fokus — 25 menit</span><span class="badge">Fokus</span></li>
+              <li><span>11:15 — Fokus — 25 menit</span><span class="badge">Fokus</span></li>
+              <li><span>13:20 — Fokus — 25 menit</span><span class="badge">Fokus</span></li>
+            </ul>
+            <div style="margin-top:20px">
+              <a href="app.html" class="btn btn-primary btn-small">Coba Sekarang</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>Siap untuk mulai fokus?</h2>
+          <p>Satu sesi. Satu tujuan. Mulai sekarang.</p>
+          <a href="app.html" class="btn btn-primary">Mulai Fokus</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a href="index.html" class="logo">Focusly</a>
+        <p>Fokus lebih baik. Selesaikan lebih banyak.</p>
+      </div>
+      <div class="footer-copy">© 2026 Focusly. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/landing.js"></script>
+</body>
+</html>
